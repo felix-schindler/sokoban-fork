@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sokoban</title>
+
+    <script type="text/javascript" src="js/rss.js/Rss.js"></script>
+    <script type="text/javascript" src="js/rss.js/Rss.EventEmitter.js"></script>
+    <script type="text/javascript" src="js/rss.js/Rss.Canvas.js"></script>
+    <script type="text/javascript" src="js/rss.js/Rss.Grid.js"></script>
+    <script type="text/javascript" src="js/rss.js/Rss.Matrix.js"></script>
+    <script type="text/javascript" src="js/rss.js/Rss.Random.js"></script>
+    <script type="text/javascript" src="js/maps.js"></script>
+    <script type="text/javascript" src="js/sokoban.js"></script>
+    <script type="text/javascript" src="js/main.js" defer="defer"></script>
+
+    <style>
+        :root {
+            color-scheme: light dark;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #controls {
+            font-size: 2rem;
+            background-color: skyblue;
+        }
+
+        select,
+        button {
+            font-size: 1em;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="emptyImage" src="images/empty.png" />
+    <img id="wallImage" src="images/wall.png" />
+    <img id="floorImage" src="images/floor.png" />
+    <img id="targetImage" src="images/target.png" />
+    <img id="cargoImage" src="images/cargo.png" />
+    <img id="cargoOnTargetImage" src="images/cargo_on_target.png" />
+    <img id="keeperImage" src="images/keeper.png" />
+    <img id="keeperOnTargetImage" src="images/keeper_on_target.png" />
+    <div id="controls">
+        <span> Level <span id="currentStage">1</span>
+        </span>
+        &nbsp; &nbsp; <select id="stageSelect"></select>
+        <button id="gotoStage">Go to Level</button>
+    </div>
+    <p>Space to restart</p>
+</body>
+
+</html>
