@@ -1,6 +1,6 @@
 "use strict";
+
 window.onload = function () {
-	var keyMap = { 32: "SPACE", 37: "LEFT", 38: "UP", 39: "RIGHT", 40: "DOWN" };
 	var currentStage = document.getElementById("currentStage"),
 		stageSelect = document.getElementById("stageSelect"),
 		gotoStage = document.getElementById("gotoStage");
@@ -40,24 +40,25 @@ window.onload = function () {
 	var sokoban = new Sokoban(patterns);
 	document.addEventListener("keydown", function (event) {
 		var handled = false;
-		switch (keyMap[event.keyCode]) {
-			case "UP":
+
+		switch (event.code) {
+			case "ArrowUp":
 				sokoban.moveUp();
 				handled = true;
 				break;
-			case "LEFT":
+			case "ArrowLeft":
 				sokoban.moveLeft();
 				handled = true;
 				break;
-			case "RIGHT":
+			case "ArrowRight":
 				sokoban.moveRight();
 				handled = true;
 				break;
-			case "DOWN":
+			case "ArrowDown":
 				sokoban.moveDown();
 				handled = true;
 				break;
-			case "SPACE":
+			case "Space":
 				sokoban.playMap(sokoban.mapIndex);
 				handled = true;
 			default:
