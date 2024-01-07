@@ -1,15 +1,16 @@
 "use strict";
 
-window.onload = function () {
-	var currentStage = document.getElementById("currentStage"),
-		stageSelect = document.getElementById("stageSelect"),
+window.onload = () => {
+	const stageSelect = document.getElementById("stageSelect"),
 		gotoStage = document.getElementById("gotoStage");
-	for (var i = 0; i < maps.length; i++) {
-		var option = document.createElement("option");
+
+		for (let i = 0; i < maps.length; i++) {
+		const option = document.createElement("option");
 		option.textContent = "Level " + (i + 1);
 		stageSelect.appendChild(option);
 	}
-	var emptyImage = document.getElementById("emptyImage"),
+
+	let emptyImage = document.getElementById("emptyImage"),
 		wallImage = document.getElementById("wallImage"),
 		floorImage = document.getElementById("floorImage"),
 		targetImage = document.getElementById("targetImage"),
@@ -25,9 +26,10 @@ window.onload = function () {
 	document.body.removeChild(cargoOnTargetImage);
 	document.body.removeChild(keeperImage);
 	document.body.removeChild(keeperOnTargetImage);
-	var canvas = document.createElement("canvas");
-	var context = canvas.getContext("2d");
-	var patterns = {
+
+	const canvas = document.createElement("canvas");
+	const context = canvas.getContext("2d");
+	const patterns = Object.freeze({
 		0: context.createPattern(emptyImage, "repeat"),
 		1: context.createPattern(wallImage, "repeat"),
 		2: context.createPattern(floorImage, "repeat"),
@@ -36,10 +38,19 @@ window.onload = function () {
 		5: context.createPattern(cargoOnTargetImage, "repeat"),
 		6: context.createPattern(keeperImage, "repeat"),
 		7: context.createPattern(keeperOnTargetImage, "repeat"),
-	};
-	var sokoban = new Sokoban(patterns);
+	});
+
+	const sokoban = new Sokoban(patterns);
+
+	const reqLevel = parseInt(
+		new URLSearchParams(window.location.search).get("level"),
+	);
+	if (!isNaN(reqLevel)) {
+		sokoban.playMap(reqLevel - 1);
+	}
+
 	document.addEventListener("keydown", function (event) {
-		var handled = false;
+		let handled = false;
 
 		switch (event.code) {
 			case "ArrowUp":
@@ -64,17 +75,22 @@ window.onload = function () {
 			default:
 				break;
 		}
+
 		if (handled) event.preventDefault();
 	});
+
 	sokoban.on("stageStarted", function () {
-		currentStage.textContent = this.mapIndex + 1;
 		stageSelect.children[this.mapIndex].selected = true;
 	});
-	gotoStage.addEventListener("click", function (event) {
-		var i;
-		for (i = 0; i < stageSelect.children.length; i++) {
-			if (stageSelect.children[i].selected) sokoban.playMap(i);
+
+	gotoStage.addEventListener("click", () => {
+		for (let i = 0; i < stageSelect.children.length; i++) {
+			if (stageSelect.children[i].selected) {
+				history.pushState({ path: "index.html" }, "", `?level=${i + 1}`);
+				sokoban.playMap(i);
+			}
 		}
 	});
+
 	sokoban.play();
 };
