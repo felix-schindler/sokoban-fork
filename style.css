@@ -22,7 +22,6 @@ body {
 #controls {
 	padding: .25em .5em;
 	font-size: 2rem;
-	background-color: var(--accent);
 }
 
 canvas {
@@ -32,7 +31,18 @@ canvas {
 
 select,
 button {
-	font-size: 1em;
+	font-size: 1rem;
+	background-color: transparent;
+	border: 1px solid var(--accent);
+	border-radius: .5em;
+	cursor: pointer;
+	padding: .25em .5em;
+	box-sizing: border-box;
+}
+
+select:hover,
+button:hover {
+	background-color: rgba(0, 0, 0, .05);
 }
 
 kbd {
@@ -48,5 +58,17 @@ kbd {
 @media (min-width: 768px) {
 	body {
 		font-size: 1.5em;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	kbd {
+		background-color: #1a202c; /* dark:bg-gray-600 */
+	  color: #ffffff; /* dark:text-gray-100 */
+	}
+
+	select:hover,
+	button:hover {
+		background-color: rgba(255, 255, 255, .1);
 	}
 }
