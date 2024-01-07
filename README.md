@@ -1,8 +1,7 @@
 # Sokoban
 
-> [!NOTE]
-> I AM NOT THE AUTHOR OF THIS CODE. I AM JUST USING IT FOR EDUCATIONAL PURPOSES.
-> You can find the original game at
+> [!NOTE] I AM NOT THE AUTHOR OF THIS CODE. I AM JUST USING IT FOR EDUCATIONAL
+> PURPOSES. You can find the original game at
 > https://www.mathsisfun.com/games/sokoban.html
 >
 > If you are the author of this code and you want me to remove it, please

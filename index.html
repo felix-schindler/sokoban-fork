@@ -2,57 +2,41 @@
 <html>
 
 <head>
-    <title>Sokoban</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="text/javascript" src="js/rss.js/Rss.js"></script>
-    <script type="text/javascript" src="js/rss.js/Rss.EventEmitter.js"></script>
-    <script type="text/javascript" src="js/rss.js/Rss.Canvas.js"></script>
-    <script type="text/javascript" src="js/rss.js/Rss.Grid.js"></script>
-    <script type="text/javascript" src="js/rss.js/Rss.Matrix.js"></script>
-    <script type="text/javascript" src="js/rss.js/Rss.Random.js"></script>
-    <script type="text/javascript" src="js/maps.js"></script>
-    <script type="text/javascript" src="js/sokoban.js"></script>
-    <script type="text/javascript" src="js/main.js" defer="defer"></script>
+	<!-- SEO: We don't want to be found so there's nothing here -->
+	<title>Sokoban</title>
+	<!-- <meta name="description" content="60 levels of the classic Warehouse puzzle from Japan"> -->
 
-    <style>
-        :root {
-            color-scheme: light dark;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
+	<script type="text/javascript" src="js/rss.js/Rss.js"></script>
+	<script type="text/javascript" src="js/rss.js/Rss.EventEmitter.js"></script>
+	<script type="text/javascript" src="js/rss.js/Rss.Canvas.js"></script>
+	<script type="text/javascript" src="js/rss.js/Rss.Grid.js"></script>
+	<script type="text/javascript" src="js/rss.js/Rss.Matrix.js"></script>
+	<script type="text/javascript" src="js/rss.js/Rss.Random.js"></script>
+	<script type="text/javascript" src="js/maps.js"></script>
+	<script type="text/javascript" src="js/sokoban.js"></script>
+	<script type="text/javascript" src="js/main.js" defer="defer"></script>
 
-        #controls {
-            font-size: 2rem;
-            background-color: skyblue;
-        }
-
-        select,
-        button {
-            font-size: 1em;
-        }
-
-        canvas {
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <img id="emptyImage" src="images/empty.png" />
-    <img id="wallImage" src="images/wall.png" />
-    <img id="floorImage" src="images/floor.png" />
-    <img id="targetImage" src="images/target.png" />
-    <img id="cargoImage" src="images/cargo.png" />
-    <img id="cargoOnTargetImage" src="images/cargo_on_target.png" />
-    <img id="keeperImage" src="images/keeper.png" />
-    <img id="keeperOnTargetImage" src="images/keeper_on_target.png" />
-    <div id="controls">
-        <span> Level <span id="currentStage">1</span>
-        </span>
-        &nbsp; &nbsp; <select id="stageSelect"></select>
-        <button id="gotoStage">Go to Level</button>
-    </div>
-    <p>Space to restart</p>
+	<img id="emptyImage" src="images/empty.png" />
+	<img id="wallImage" src="images/wall.png" />
+	<img id="floorImage" src="images/floor.png" />
+	<img id="targetImage" src="images/target.png" />
+	<img id="cargoImage" src="images/cargo.png" />
+	<img id="cargoOnTargetImage" src="images/cargo_on_target.png" />
+	<img id="keeperImage" src="images/keeper.png" />
+	<img id="keeperOnTargetImage" src="images/keeper_on_target.png" />
+	<div id="controls">
+		<select id="stageSelect"></select>
+		<button id="gotoStage">Go to Level</button>
+	</div>
+	<p>60 levels of the classic 📦 puzzle from 🇯🇵</p>
+	<p>Press <kbd>space</kbd> to restart</p>
 </body>
 
 </html>
