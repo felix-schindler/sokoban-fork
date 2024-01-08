@@ -3,10 +3,30 @@
 import Sokoban from "./sokoban.mjs";
 import { maps } from "./maps.mjs";
 
+/**
+ * @param {number} level Level to check
+ * @returns {boolean} Whether the level is valid
+ */
+function validLevel(level) {
+	return !isNaN(level) && level > 0 && level <= maps.length;
+}
+
 window.onload = () => {
-	const reqLevel = parseInt(
+	let lastWon = parseInt(localStorage.getItem("level"));
+	let reqLevel = parseInt(
 		new URLSearchParams(window.location.search).get("level"),
 	);
+
+	// Check if requested one is valid or not
+	// when not valid, use the last won level
+	// when last won level also not valid, use level 1
+	if (!validLevel(reqLevel)) {
+		if (validLevel(++lastWon)) {
+			reqLevel = lastWon;
+		} else {
+			reqLevel = 1;
+		}
+	}
 
 	const stageSelect = document.getElementById("stageSelect"),
 		gotoStage = document.getElementById("gotoStage");
@@ -53,10 +73,7 @@ window.onload = () => {
 	document.body.removeChild(keeperOnTargetImage);
 
 	const sokoban = new Sokoban(patterns);
-
-	if (!isNaN(reqLevel)) {
-		sokoban.playMap(reqLevel - 1);
-	}
+	sokoban.playMap(reqLevel - 1);
 
 	document.addEventListener("keydown", function (event) {
 		let handled = false;

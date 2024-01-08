@@ -50,6 +50,7 @@ export default class Sokoban {
 			) if (this._map[i][j] == 3 || this._map[i][j] == 4) finished = false;
 		}
 		if (finished) {
+			localStorage.setItem("level", this.mapIndex + 1);
 			alert("You have completed this level, the next stage will level now.");
 			this._playNextMap();
 		}
