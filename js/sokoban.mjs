@@ -13,14 +13,6 @@ export default class Sokoban {
 	h = this._map.length;
 	grid = new Rss.Grid(this.w, this.h, 32);
 
-	// FIXME: This needs to be Rss.js' EventEmitter
-	on() {
-	}
-
-	// FIXME: This needs to be Rss.js' EventEmitter
-	emit() {
-	}
-
 	constructor(patterns) {
 		this.patterns = patterns;
 	}
@@ -78,12 +70,14 @@ export default class Sokoban {
 		this.h = this._map.length;
 		this.grid = new Rss.Grid(this.w, this.h, 32);
 
+		const stageSelect = document.getElementById("stageSelect");
+		stageSelect.children[mapIndex].selected = true;
+		history.pushState({ path: "index.html" }, "", `?level=${mapIndex + 1}`);
 		this.play();
 	}
 
 	play() {
 		this._drawMap();
-		this.emit("stageStarted");
 	}
 
 	restartStage() {
@@ -267,5 +261,3 @@ export default class Sokoban {
 		this._checkIfFinished();
 	}
 }
-
-// Sokoban.prototype = new Rss.EventEmitter();

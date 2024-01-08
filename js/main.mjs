@@ -4,11 +4,12 @@ import Sokoban from "./sokoban.mjs";
 import { maps } from "./maps.mjs";
 
 window.onload = () => {
-	const stageSelect = document.getElementById("stageSelect"),
-		gotoStage = document.getElementById("gotoStage");
 	const reqLevel = parseInt(
 		new URLSearchParams(window.location.search).get("level"),
 	);
+
+	const stageSelect = document.getElementById("stageSelect"),
+		gotoStage = document.getElementById("gotoStage");
 
 	for (let i = 0; i < maps.length; i++) {
 		const option = document.createElement("option");
@@ -20,7 +21,7 @@ window.onload = () => {
 		stageSelect.appendChild(option);
 	}
 
-	let emptyImage = document.getElementById("emptyImage"),
+	const emptyImage = document.getElementById("emptyImage"),
 		wallImage = document.getElementById("wallImage"),
 		floorImage = document.getElementById("floorImage"),
 		targetImage = document.getElementById("targetImage"),
@@ -28,14 +29,6 @@ window.onload = () => {
 		cargoOnTargetImage = document.getElementById("cargoOnTargetImage"),
 		keeperImage = document.getElementById("keeperImage"),
 		keeperOnTargetImage = document.getElementById("keeperOnTargetImage");
-	document.body.removeChild(emptyImage);
-	document.body.removeChild(wallImage);
-	document.body.removeChild(floorImage);
-	document.body.removeChild(targetImage);
-	document.body.removeChild(cargoImage);
-	document.body.removeChild(cargoOnTargetImage);
-	document.body.removeChild(keeperImage);
-	document.body.removeChild(keeperOnTargetImage);
 
 	const canvas = document.createElement("canvas");
 	const context = canvas.getContext("2d");
@@ -49,6 +42,15 @@ window.onload = () => {
 		6: context.createPattern(keeperImage, "repeat"),
 		7: context.createPattern(keeperOnTargetImage, "repeat"),
 	});
+
+	document.body.removeChild(emptyImage);
+	document.body.removeChild(wallImage);
+	document.body.removeChild(floorImage);
+	document.body.removeChild(targetImage);
+	document.body.removeChild(cargoImage);
+	document.body.removeChild(cargoOnTargetImage);
+	document.body.removeChild(keeperImage);
+	document.body.removeChild(keeperOnTargetImage);
 
 	const sokoban = new Sokoban(patterns);
 
@@ -86,14 +88,9 @@ window.onload = () => {
 		if (handled) event.preventDefault();
 	});
 
-	sokoban.on("stageStarted", function () {
-		stageSelect.children[this.mapIndex].selected = true;
-	});
-
 	gotoStage.addEventListener("click", () => {
 		for (let i = 0; i < stageSelect.children.length; i++) {
 			if (stageSelect.children[i].selected) {
-				history.pushState({ path: "index.html" }, "", `?level=${i + 1}`);
 				sokoban.playMap(i);
 			}
 		}
