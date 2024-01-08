@@ -1,6 +1,6 @@
 "use strict";
 
-var tiles = {
+export const tiles = Object.freeze({
 	0: "EMPTY",
 	1: "WALL",
 	2: "FLOOR",
@@ -9,9 +9,9 @@ var tiles = {
 	5: "CARGO_ON_TARGET",
 	6: "KEEPER",
 	7: "KEEPER_ON_TARGET",
-};
+});
 
-var maps = [[
+export const maps = Object.freeze([[
 	[0, 0, 1, 1, 1, 1, 1, 0],
 	[1, 1, 1, 2, 2, 2, 1, 0],
 	[1, 3, 6, 4, 2, 2, 1, 0],
@@ -2669,4 +2669,4 @@ var maps = [[
 	2,
 	2,
 	2,
-]]];
+]]]);

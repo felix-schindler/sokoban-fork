@@ -1,12 +1,22 @@
 "use strict";
 
+import Sokoban from "./sokoban.mjs";
+import { maps } from "./maps.mjs";
+
 window.onload = () => {
 	const stageSelect = document.getElementById("stageSelect"),
 		gotoStage = document.getElementById("gotoStage");
+	const reqLevel = parseInt(
+		new URLSearchParams(window.location.search).get("level"),
+	);
 
-		for (let i = 0; i < maps.length; i++) {
+	for (let i = 0; i < maps.length; i++) {
 		const option = document.createElement("option");
-		option.textContent = "Level " + (i + 1);
+		const level = i + 1;
+		option.textContent = "Level " + level;
+		if (level === reqLevel) {
+			option.selected = true;
+		}
 		stageSelect.appendChild(option);
 	}
 
@@ -42,9 +52,6 @@ window.onload = () => {
 
 	const sokoban = new Sokoban(patterns);
 
-	const reqLevel = parseInt(
-		new URLSearchParams(window.location.search).get("level"),
-	);
 	if (!isNaN(reqLevel)) {
 		sokoban.playMap(reqLevel - 1);
 	}
