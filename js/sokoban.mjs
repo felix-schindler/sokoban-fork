@@ -81,8 +81,8 @@ export default class Sokoban {
 	}
 
 	restartStage() {
-		_map = Rss.Matrix.clone(_originalMap);
-		_drawMap();
+		this._map = Rss.Matrix.clone(_originalMap);
+		this._drawMap();
 	}
 
 	moveLeft() {

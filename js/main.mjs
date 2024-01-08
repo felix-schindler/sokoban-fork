@@ -81,7 +81,6 @@ window.onload = () => {
 			case "Space":
 				sokoban.playMap(sokoban.mapIndex);
 				handled = true;
-			default:
 				break;
 		}
 
