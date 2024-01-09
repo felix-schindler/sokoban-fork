@@ -51,7 +51,7 @@ export default class Sokoban {
 		}
 		if (finished) {
 			localStorage.setItem("level", this.mapIndex + 1);
-			alert("You have completed this level, the next stage will level now.");
+			alert("You have completed this level, the next stage will load now.");
 			this._playNextMap();
 		}
 	}
