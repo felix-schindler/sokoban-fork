@@ -79,6 +79,28 @@ kbd {
 	}
 }
 
+#mobileControls {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#mobileControls button {
+	border: none;
+	background-color: transparent;
+	font-size: 2em;
+}
+
+@media (min-width: 768px) {
+	#mobileControls {
+		display: none;
+	}
+}
+
 @media (prefers-color-scheme: dark) {
 	kbd {
 		background-color: #1a202c; /* dark:bg-gray-600 */

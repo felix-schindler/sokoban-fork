@@ -104,6 +104,16 @@ window.onload = () => {
 		if (handled) event.preventDefault();
 	});
 
+	const upButton = document.getElementById("upButton"),
+		leftButton = document.getElementById("leftButton"),
+		downButton = document.getElementById("downButton"),
+		rightButton = document.getElementById("rightButton");
+
+	upButton.addEventListener("click", () => sokoban.moveUp());
+	leftButton.addEventListener("click", () => sokoban.moveLeft());
+	downButton.addEventListener("click", () => sokoban.moveDown());
+	rightButton.addEventListener("click", () => sokoban.moveRight());
+
 	gotoStage.addEventListener("click", () => {
 		for (let i = 0; i < stageSelect.children.length; i++) {
 			if (stageSelect.children[i].selected) {
