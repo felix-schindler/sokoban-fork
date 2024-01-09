@@ -94,8 +94,18 @@ kbd {
 	font-size: 2em;
 }
 
+@media (max-width: 768px) {
+	#subtitle p:last-of-type {
+		display: none;
+	}
+}
+
 @media (min-width: 768px) {
 	#mobileControls {
+		display: none;
+	}
+
+	#subtitle button {
 		display: none;
 	}
 }
