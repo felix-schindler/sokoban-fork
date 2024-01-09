@@ -107,12 +107,14 @@ window.onload = () => {
 	const upButton = document.getElementById("upButton"),
 		leftButton = document.getElementById("leftButton"),
 		downButton = document.getElementById("downButton"),
-		rightButton = document.getElementById("rightButton");
+		rightButton = document.getElementById("rightButton"),
+		restartButton = document.getElementById("restartButton");
 
 	upButton.addEventListener("click", () => sokoban.moveUp());
 	leftButton.addEventListener("click", () => sokoban.moveLeft());
 	downButton.addEventListener("click", () => sokoban.moveDown());
 	rightButton.addEventListener("click", () => sokoban.moveRight());
+	restartButton.addEventListener("click", () => sokoban.playMap(sokoban.mapIndex));
 
 	gotoStage.addEventListener("click", () => {
 		for (let i = 0; i < stageSelect.children.length; i++) {

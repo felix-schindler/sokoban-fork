@@ -5,10 +5,12 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- SEO: We don't want to be found so there's nothing here -->
 	<title>Sokoban</title>
+	<meta name="description" content="60 levels of the classic Warehouse puzzle from Japan">
+
+	<!-- Theme -->
 	<link rel="icon" type="image/png" href="images/cargo.png">
-	<!-- <meta name="description" content="60 levels of the classic Warehouse puzzle from Japan"> -->
+	<link rel="stylesheet" href="style.css">
 
 	<script type="text/javascript" src="js/rss.js/Rss.js"></script>
 	<script type="text/javascript" src="js/rss.js/Rss.EventEmitter.js"></script>
@@ -18,7 +20,6 @@
 	<script type="text/javascript" src="js/rss.js/Rss.Random.js"></script>
 
 	<script src="js/main.mjs" type="module"></script>
-	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -32,9 +33,9 @@
 		<p>Press <kbd onclick="alert('Please look down, space is a key on your keyboard')">space</kbd> to restart</p>
 	</div>
 	<div id="mobileControls">
-		<button></button>
+		<button id="restartButton">🔁</button>
 		<button id="upButton">⬆️</button>
-		<button></button>
+		<span></span>
 		<button id="leftButton">⬅️</button>
 		<button id="downButton">⬇️</button>
 		<button id="rightButton">➡️</button>
