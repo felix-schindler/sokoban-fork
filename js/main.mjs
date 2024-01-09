@@ -114,12 +114,6 @@ window.onload = () => {
 	leftButton.addEventListener("click", () => sokoban.moveLeft());
 	downButton.addEventListener("click", () => sokoban.moveDown());
 	rightButton.addEventListener("click", () => sokoban.moveRight());
-
-	upButton.addEventListener("dblclick", (e) => e.preventDefault());
-	upButton.addEventListener("dblclick", (e) => e.preventDefault());
-	upButton.addEventListener("dblclick", (e) => e.preventDefault());
-	upButton.addEventListener("dblclick", (e) => e.preventDefault());
-
 	restartButton.addEventListener("click", () => sokoban.playMap(sokoban.mapIndex));
 
 	gotoStage.addEventListener("click", () => {
